@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Modal = () => {
+const Modal = ({modal, changeModal, title}) => {
 
     const handleClickCancel = () => {
-
+        modal.isShowModal = false;
+        changeModal(title);
     }
 
     const handleClickSave = (e) => {

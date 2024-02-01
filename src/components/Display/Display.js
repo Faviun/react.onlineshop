@@ -1,11 +1,20 @@
 import React from 'react';
 import ProductCard from "../ProductCard/ProductCard";
+import Users from '../Users/Users';
 
-const Display = (props) => {
+const Display = ({heading}) => {
+    const arrayOfComponents = {
+        products: <ProductCard data={heading.data}/>,
+        users: <Users data={heading.data}/>,
+        // albums: <Login data={heading.data}/>,
+        // photos: <Cart data={heading.data}/>
+    }
     return (
+        
         <main>
-            <div className="container mx-auto mt-[2em] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
-                {props.data.map((item) => <ProductCard key={item.id} product={item}/>)}
+            <div>
+                {arrayOfComponents[heading.navState]}  
+                {/* {data.map((item) => <ProductCard key={item.id} product={item}/>)} */}
             </div>
         </main>
     );
