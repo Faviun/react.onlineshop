@@ -10,25 +10,20 @@ class App extends Component{
         this.state = {
             data : [],
             isShowModal: false,
-            navState: 'products'
+            routing: 'products'
 
         }
     }
-    fetchData = (title) => {
-        fetch(`https://fakestoreapi.com/${title}`)
+    
+    fetchData = () => {
+        fetch(`https://fakestoreapi.com/products`)
             .then(res=>res.json())
-            .then(json => this.setState({
-                    navState: title,
+            .then(json => {
+                this.setState({
                     data : json
-                }))
-                .catch(e => {
-                  this.setState({
-                      data: [],
-                      isShowModal: false,
-                      navState: 'products'
-                  })
                 })
-              }
+            })
+        }
 
     handleShowModal = () => {
         this.setState({
@@ -37,14 +32,20 @@ class App extends Component{
     }
 
     componentDidMount() {
-        this.fetchData("products");
+        this.fetchData();
+    }
+
+    setRoutingState = (route) => {
+        this.setState({
+            routing: route
+        })
     }
 
     render(){
         return (
             <div className="flex flex-col h-full justify-between">
-                <Header changeNav={this.fetchData}/>
-                <Display heading={this.state}/>
+                <Header changeRoute={this.setRoutingState}/>
+                <Display routeState={this.state.routing} heading={this.state.data}/>
                 <Footer/>
                 {this.state.isShowModal && <Modal changeModal={this.fetchData} modal={this.state} title={this.state.navState}/>}
                 <button onClick={this.handleShowModal} className="fixed right-2 top-2 py-4 px-6 border border-green-900 rounded-full">+</button>

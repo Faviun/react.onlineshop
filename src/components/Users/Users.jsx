@@ -7,7 +7,7 @@ const Users = ({data}) => {
                 <p>id: {item.id}</p>
                 <p>username: {item.username}</p>
                 <p>password: {item.password}</p>
-                <p>firstname: {item.name.firstname}</p>
+                {/* <p>firstname: {item.name.firstname}</p>
                 <p>lastname: {item.name.lastname}</p>
                 <p>phone: {item.phone}</p>
                 <p>city: {item.address.city}</p>
@@ -15,7 +15,7 @@ const Users = ({data}) => {
                 <p>number: {item.address.number}</p>
                 <p>zipcode: {item.address.zipcode}</p>
                 <p>lat: {item.address.geolocation.lat}</p>
-                <p>long: {item.address.geolocation.long}</p>
+                <p>long: {item.address.geolocation.long}</p> */}
             </div>)}
         </div>
     );

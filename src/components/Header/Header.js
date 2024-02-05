@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({changeNav}) => {
+const Header = ({changeRoute}) => {
     const configNav = [
         {
             id: 0,
@@ -29,16 +29,13 @@ const Header = ({changeNav}) => {
                 <ul className="flex justify-around py-4">
                     {configNav.map((item) => (
                         <li className="cursor-pointer hover:text-red-800"
-                            onClick={() => changeNav(item.url)}
+                            onClick={() => changeRoute(item.url)}
                             key={item.id} 
                         >
                             {item.title}
                         </li>
                     ))}
                 </ul>
-
-
-
                 {/* <ul className="flex justify-around py-4">
                     <li className="cursor-pointer hover:text-red-800 ">Products</li>
                     <li>Users</li>
